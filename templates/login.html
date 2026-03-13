@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Habit Tracker — Sign In</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#f5ede6;--blush:#e8d5c8;--rose:#c8a090;--terra:#b8836a;--deep:#8b5e52;--text:#6b4c43;--lt:#a07868;--border:#d4b8ac;--shadow:rgba(139,94,82,.18);}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--cream);font-family:'Cormorant Garamond',serif;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;
+    background-image:radial-gradient(ellipse at 15% 15%,rgba(200,160,144,.15) 0%,transparent 55%),radial-gradient(ellipse at 85% 85%,rgba(184,131,106,.12) 0%,transparent 55%);}
+  .card{width:100%;max-width:420px;background:rgba(245,237,230,.97);border:1.5px solid var(--border);border-radius:8px;padding:40px 36px 36px;box-shadow:0 8px 48px var(--shadow);position:relative;animation:fadeIn .5s ease both;}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:none;}}
+  .sun{position:absolute;top:-24px;left:50%;transform:translateX(-50%);width:48px;height:48px;}
+  .sun svg{width:100%;height:100%;}
+  .logo{text-align:center;margin-bottom:28px;margin-top:4px;}
+  .logo h1{font-family:'Cinzel',serif;font-size:1.6rem;letter-spacing:.2em;color:var(--terra);line-height:1;}
+  .logo p{font-style:italic;font-size:.85rem;color:var(--lt);margin-top:4px;}
+  .tabs{display:flex;border-bottom:1.5px solid var(--border);margin-bottom:24px;}
+  .tab{flex:1;text-align:center;padding:10px;font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.14em;color:var(--lt);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1.5px;transition:all .2s;}
+  .tab.active{color:var(--terra);border-bottom-color:var(--terra);}
+  .form-group{margin-bottom:16px;}
+  label{display:block;font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.14em;color:var(--lt);margin-bottom:6px;}
+  input{width:100%;background:rgba(255,255,255,.6);border:1.5px solid var(--border);border-radius:3px;padding:11px 14px;font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--text);outline:none;transition:border-color .2s;}
+  input:focus{border-color:var(--terra);}
+  input::placeholder{color:var(--border);}
+  .btn{width:100%;padding:13px;background:var(--terra);color:var(--cream);border:none;border-radius:3px;font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.16em;cursor:pointer;transition:all .2s;margin-top:6px;}
+  .btn:hover{background:var(--deep);}
+  .btn:disabled{opacity:.6;cursor:not-allowed;}
+  .msg{font-size:.85rem;text-align:center;padding:10px;border-radius:3px;margin-top:12px;display:none;}
+  .msg.error{background:rgba(200,100,80,.12);color:#a04030;border:1px solid rgba(200,100,80,.3);}
+  .msg.success{background:rgba(100,160,100,.12);color:#406040;border:1px solid rgba(100,160,100,.3);}
+  .form-panel{display:none;} .form-panel.active{display:block;}
+  .divider{text-align:center;color:var(--border);font-size:.75rem;margin:6px 0;font-style:italic;}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="sun">
+    <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="9" stroke="#b8836a" stroke-width="1.5"/><g stroke="#b8836a" stroke-width="1.2" stroke-linecap="round"><line x1="24" y1="3" x2="24" y2="10"/><line x1="24" y1="38" x2="24" y2="45"/><line x1="3" y1="24" x2="10" y2="24"/><line x1="38" y1="24" x2="45" y2="24"/><line x1="8" y1="8" x2="13" y2="13"/><line x1="35" y1="35" x2="40" y2="40"/><line x1="40" y1="8" x2="35" y2="13"/><line x1="13" y1="35" x2="8" y2="40"/></g></svg>
+  </div>
+  <div class="logo">
+    <h1>Habit Tracker</h1>
+    <p>cultivate the life you desire</p>
+  </div>
+  <div class="tabs">
+    <div class="tab active" onclick="switchTab('login')">SIGN IN</div>
+    <div class="tab" onclick="switchTab('register')">CREATE ACCOUNT</div>
+  </div>
+
+  <!-- LOGIN -->
+  <div class="form-panel active" id="loginPanel">
+    <div class="form-group">
+      <label>USERNAME OR EMAIL</label>
+      <input id="loginId" type="text" placeholder="your username or email" autocomplete="username">
+    </div>
+    <div class="form-group">
+      <label>PASSWORD</label>
+      <input id="loginPw" type="password" placeholder="••••••••" autocomplete="current-password">
+    </div>
+    <button class="btn" id="loginBtn" onclick="doLogin()">SIGN IN</button>
+    <div class="msg" id="loginMsg"></div>
+  </div>
+
+  <!-- REGISTER -->
+  <div class="form-panel" id="registerPanel">
+    <div class="form-group">
+      <label>USERNAME</label>
+      <input id="regUser" type="text" placeholder="choose a username" autocomplete="username">
+    </div>
+    <div class="form-group">
+      <label>EMAIL</label>
+      <input id="regEmail" type="email" placeholder="your@email.com" autocomplete="email">
+    </div>
+    <div class="form-group">
+      <label>PASSWORD</label>
+      <input id="regPw" type="password" placeholder="min 6 characters" autocomplete="new-password">
+    </div>
+    <button class="btn" id="regBtn" onclick="doRegister()">CREATE ACCOUNT</button>
+    <div class="msg" id="regMsg"></div>
+  </div>
+</div>
+
+<script>
+function switchTab(t){
+  document.querySelectorAll('.tab').forEach((el,i)=>el.classList.toggle('active',i===(t==='login'?0:1)));
+  document.getElementById('loginPanel').classList.toggle('active',t==='login');
+  document.getElementById('registerPanel').classList.toggle('active',t==='register');
+}
+
+function showMsg(id,text,type){
+  const el=document.getElementById(id);
+  el.textContent=text; el.className='msg '+type; el.style.display='block';
+}
+
+async function doLogin(){
+  const btn=document.getElementById('loginBtn');
+  btn.disabled=true; btn.textContent='SIGNING IN…';
+  const r=await fetch('/api/login',{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({identifier:document.getElementById('loginId').value,password:document.getElementById('loginPw').value})});
+  const d=await r.json();
+  if(d.ok){location.href='/';}else{showMsg('loginMsg',d.error||'Login failed','error');btn.disabled=false;btn.textContent='SIGN IN';}
+}
+
+async function doRegister(){
+  const btn=document.getElementById('regBtn');
+  btn.disabled=true; btn.textContent='CREATING…';
+  const r=await fetch('/api/register',{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({username:document.getElementById('regUser').value,email:document.getElementById('regEmail').value,password:document.getElementById('regPw').value})});
+  const d=await r.json();
+  if(d.ok){showMsg('regMsg','Account created! Signing you in…','success');
+    setTimeout(async()=>{
+      await fetch('/api/login',{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({identifier:document.getElementById('regUser').value,password:document.getElementById('regPw').value})});
+      location.href='/';
+    },800);
+  }else{showMsg('regMsg',d.error||'Registration failed','error');btn.disabled=false;btn.textContent='CREATE ACCOUNT';}
+}
+
+// Enter key support
+document.addEventListener('keydown',e=>{if(e.key==='Enter'){
+  if(document.getElementById('loginPanel').classList.contains('active'))doLogin();
+  else doRegister();
+}});
+</script>
+</body>
+</html>
