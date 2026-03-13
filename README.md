@@ -25,29 +25,68 @@ The goal of the project was to understand:
 * Basic DevOps practices
 
 The application was developed locally, containerized with Docker, pushed to GitHub, and then deployed to a cloud platform.
+https://habit-tracker-v1vs.onrender.com/
 
 ---
 
 # System Architecture
 
+
+
+The application follows a container-based deployment architecture using Docker and cloud hosting.
+
 ```
-Local Development
-       │
-       ▼
-Git Push
-       │
-       ▼
-GitHub Repository
-       │
-       ▼
-Docker Image Build
-       │
-       ▼
-Cloud Deployment
-       │
-       ▼
-Public Web URL
+                    ┌──────────────────────┐
+                    │      User Browser    │
+                    │  http://public-url  │
+                    └──────────┬───────────┘
+                               │ HTTP Request
+                               ▼
+                    ┌──────────────────────┐
+                    │   Cloud Platform     │
+                    │   (Render Service)   │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │   Docker Container   │
+                    │  Flask Application   │
+                    │       app.py         │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │   PostgreSQL DB      │
+                    │   habitdb database   │
+                    └──────────────────────┘
+
+
+──────────────── Development & Deployment Pipeline ────────────────
+
+        Developer Laptop
+                │
+                ▼
+        Write Flask Code
+                │
+                ▼
+          Git Commit
+                │
+                ▼
+        Push to GitHub Repository
+                │
+                ▼
+        Docker Image Build
+                │
+                ▼
+        Cloud Platform Pulls Repo
+                │
+                ▼
+        Container Starts Automatically
+                │
+                ▼
+        Application Available Online
 ```
+
 
 ---
 
