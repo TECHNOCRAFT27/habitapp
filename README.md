@@ -2,6 +2,7 @@
 
 <img width="1920" height="1030" alt="Screenshot_20260312_212220" src="https://github.com/user-attachments/assets/24db7cd0-7083-438b-82f1-8abfe5ae56c1" />
 this is painful
+
 <img width="641" height="360" alt="image" src="https://github.com/user-attachments/assets/0b508f05-3602-4cb8-9029-3058c775ea95" />
 
 ## Project Overview
@@ -25,6 +26,7 @@ The goal of the project was to understand:
 * Basic DevOps practices
 
 The application was developed locally, containerized with Docker, pushed to GitHub, and then deployed to a cloud platform.
+
 https://habit-tracker-v1vs.onrender.com/
 
 ---
