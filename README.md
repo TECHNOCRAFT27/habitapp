@@ -1,6 +1,18 @@
 # Flask Habit Tracker – Docker + Cloud Deployment
 
+<img width="1920" height="1030" alt="Screenshot_20260312_212220" src="https://github.com/user-attachments/assets/24db7cd0-7083-438b-82f1-8abfe5ae56c1" />
+this is painful
+<img width="641" height="360" alt="image" src="https://github.com/user-attachments/assets/0b508f05-3602-4cb8-9029-3058c775ea95" />
+
 ## Project Overview
+
+<img width="1885" height="510" alt="Screenshot_20260313_160715-1" src="https://github.com/user-attachments/assets/86f5bd61-0d56-42d9-a528-08273f7283ca" />
+<img width="1885" height="510" alt="Screenshot_20260313_160715" src="https://github.com/user-attachments/assets/0b0dfd79-822c-4262-b968-71446e628a9f" />
+<img width="1902" height="350" alt="Screenshot_20260313_160643-1" src="https://github.com/user-attachments/assets/d2d7501f-6e71-4b67-a751-6e4c8ec4e709" />
+<img width="1902" height="350" alt="Screenshot_20260313_160643" src="https://github.com/user-attachments/assets/e42d9664-5f21-4ac6-8ec1-5bfc4829854a" />
+<img width="1901" height="397" alt="Screenshot_20260313_160509-1" src="https://github.com/user-attachments/assets/055bf9e5-f958-4e88-bd8b-9d811469e2c3" />
+<img width="1901" height="397" alt="Screenshot_20260313_160509" src="https://github.com/user-attachments/assets/73db5b12-4d68-4d48-81bf-51063d02031f" />
+
 
 This project demonstrates how to build and deploy a simple **Flask web application** using **Docker containers** and host it on a cloud platform.
 
@@ -284,4 +296,13 @@ Possible improvements:
 technocraft27
 Mechanical Engineering Student | Polymath Builder
 
-Exploring backend development, cloud systems, and robotics-driven software systems.
+This project started as a “simple Flask deployment”.
+
+Then came Docker errors.
+Then networking errors.
+Then cloud deployment errors.
+Then more Docker errors.
+
+After many debugging sessions (and help from ChatGPT and Claude), the app is finally alive on the cloud.
+
+If you find it useful, feel free to **use, modify, and improve it**. Welcome to the chaos of open source :)
