@@ -1,4 +1,5 @@
 # Flask Habit Tracker – Docker + Cloud Deployment
+https://img.shields.io/badge/license-MIT-green
 
 <img width="1920" height="1030" alt="Screenshot_20260312_212220" src="https://github.com/user-attachments/assets/24db7cd0-7083-438b-82f1-8abfe5ae56c1" />
 this is painful
